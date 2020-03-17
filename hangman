@@ -1,0 +1,131 @@
+
+
+
+import random
+from tkinter import *
+from tkinter import messagebox
+from PIL import ImageTk, Image
+
+window = Tk()
+window.title("Ready to Hang!! If you didn't find the word less than 6 chances")
+window.geometry("800x700")
+chances=6;
+image_paths=[r'C:\Users\gurusha\Desktop\hangie']
+img = Image.open(image_paths[chances])
+img = img.resize((200, 200), Image.ANTIALIAS)
+img= ImageTk.PhotoImage(img)
+panel = Label(window, image = img)
+panel.grid(column=0, row=0)
+answer_arr=[]
+
+words55=["MOTHER","FATHER","PYTHON","NOTICE","BOTHER","AMUSED","ORANGE","PULSAR"]
+answer= random.choice(words55);
+def clicked(alphabet):
+    global chances
+    if alphabet in answer:
+        if alphabet==answer[0]:
+            btn01["text"] = alphabet;
+        elif alphabet==answer[1]:
+            btn02["text"] = alphabet;
+        elif alphabet==answer[2]:
+            btn03["text"] = alphabet;
+        elif alphabet==answer[3]:
+            btn04["text"] = alphabet;
+        elif alphabet==answer[4]:
+            btn05["text"] = alphabet;
+        elif alphabet==answer[5]:
+            btn06["text"] = alphabet;
+    else:
+        chances = chances - 1;
+        txt="Chances remaining "+str(chances);
+        if chances==0:
+            messagebox.showinfo("Loose to guess","Hanged!!!!!")
+            window.destroy()
+        label1.configure(text=txt)
+        image = Image.open(image_paths[chances])
+        image = image.resize((200, 200), Image.ANTIALIAS)
+        imgnew = ImageTk.PhotoImage(image)
+        panel.configure(image=imgnew)
+        panel.image = imgnew
+    if btn01["text"]==answer[0] and btn02["text"]==answer[1] and btn03["text"]==answer[2] and btn04["text"]==answer[3] and btn05["text"]==answer[4] and btn06["text"]==answer[5]:
+        messagebox.showinfo("congratulations", "Win the Game Great Buddy!!!!")
+        window.destroy()
+    print(chances)
+
+
+
+btn01 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn01.grid(column=1, row=0)
+btn02 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn02.grid(column=2, row=0)
+btn03 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn03.grid(column=3, row=0)
+btn04 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn04.grid(column=4, row=0)
+btn05 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn05.grid(column=5, row=0)
+btn06 = Button(window, text=" ",bg="white", fg="Black",width=3,height=1,font=('Helvetica','20'))
+btn06.grid(column=6, row=0)
+
+
+btn1 = Button(window, text="A",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("A"))
+btn1.grid(column=1, row=1)
+btn2 = Button(window, text="B",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("B"))
+btn2.grid(column=2, row=1)
+btn4 = Button(window, text="C",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("C"))
+btn4.grid(column=3, row=1)
+btn5 = Button(window, text="D",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("D"))
+btn5.grid(column=4, row=1)
+btn6 = Button(window, text="E",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("E"))
+btn6.grid(column=5, row=1)
+btn7 = Button(window, text="F",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("F"))
+btn7.grid(column=1, row=2)
+btn8 = Button(window, text="G",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("G"))
+btn8.grid(column=2, row=2)
+
+btn9 = Button(window, text="H",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("H"))
+btn9.grid(column=3, row=2)
+btn10 = Button(window, text="I",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("I"))
+btn10.grid(column=4, row=2)
+btn11= Button(window, text="J",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("J"))
+btn11.grid(column=5, row=2)
+btn12 = Button(window, text="K",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("K"))
+btn12.grid(column=1, row=3)
+btn13 = Button(window, text="L",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("L"))
+btn13.grid(column=2, row=3)
+btn14 = Button(window, text="M",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("M"))
+btn14.grid(column=3, row=3)
+
+btn15= Button(window, text="N",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("N"))
+btn15.grid(column=4, row=3)
+btn16 = Button(window, text="O",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("O"))
+btn16.grid(column=5, row=3)
+btn17 = Button(window, text="P",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("P"))
+btn17.grid(column=1, row=4)
+btn18 = Button(window, text="Q",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("Q"))
+btn18.grid(column=2, row=4)
+
+btn19 = Button(window, text="R",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("R"))
+btn19.grid(column=3, row=4)
+btn20 = Button(window, text="S",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("S"))
+btn20.grid(column=4, row=4)
+
+btn21= Button(window, text="T",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("T"))
+btn21.grid(column=5, row=4)
+btn22 = Button(window, text="U",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("U"))
+btn22.grid(column=1, row=5)
+btn23 = Button(window, text="V",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("V"))
+btn23.grid(column=2, row=5)
+btn24 = Button(window, text="W",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("W"))
+btn24.grid(column=3, row=5)
+
+btn25 = Button(window, text="X",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("X"))
+btn25.grid(column=4, row=5)
+btn26 = Button(window, text="Y",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("Y"))
+btn26.grid(column=5, row=5)
+
+btn27 = Button(window, text="Z",bg="skyBlue", fg="Black",width=3,height=1,font=('Helvetica','20'),command=lambda: clicked("Z"))
+btn27.grid(column=3, row=6)
+label1=Label(window,text="Total Chances are : 6")
+label1.grid(row=6,column=0)
+window.mainloop()
